@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\JobOfferRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types;
+use App\Repository\JobOfferRepository;
 
 #[ORM\Entity(repositoryClass: JobOfferRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -45,6 +45,15 @@ class JobOffer
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $app_user = null;
+
+    public function __construct()
+    {
+        $this->link = "";
+        $this->location = "";
+        $this->salary = "";
+        $this->contactPerson = '';
+        $this->contactEmail = "";
+    }
 
     public function getId(): ?int
     {

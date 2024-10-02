@@ -61,6 +61,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->updatedAt = new \DateTimeImmutable();
     }
 
+
+    public function __construct()
+    {
+        $this->image = 'default.png';
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
