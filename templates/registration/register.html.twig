@@ -7,6 +7,7 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
+<main class="max-w-screen-lg mx-auto py-5 md:py-16 px-4">
     <h1>Register</h1>
 
     {{ form_errors(registrationForm) }}
@@ -20,4 +21,5 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+</main>
 {% endblock %}
