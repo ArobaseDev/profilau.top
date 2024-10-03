@@ -22,6 +22,10 @@ class CoverLetterController extends AbstractController
     #[Route('/cover-letter/generate', name: 'app_cover_letter', methods:['POST'])]
     public function generate(): Response
     {
+        $apiKey = getenv('GEMINI_API_KEY');
+        $client = Gemini::client($apiKey);
+        $result = $client->geminiPro()->generateContent('Hello');
+       echo ($result->text());
             // API call to generate cover letter
     }
 }

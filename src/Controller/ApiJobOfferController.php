@@ -15,6 +15,7 @@ class ApiJobOfferController extends AbstractController
     #[Route('/api/job/offer', name: 'app_api_job_offer', methods:['POST'])]
     public function index(): Response
     {
+        
         return $this->render('api_job_offer/index.html.twig', [
             'controller_name' => 'ApiJobOfferController',
         ]);

@@ -20,8 +20,10 @@ class JobOfferController extends AbstractController
     public function list(JobOfferRepository $jr): Response
     {
         $offers = $jr->findAll();
-        dd($offers);
-        return $this->render('job_offer/list.html.twig',);
+   //     dd($offers);
+        return $this->render('job_offer/list.html.twig' ,[
+            'offers' => $offers
+        ]);
     }
     
     #[Route('/job-offers/new', name: 'app_job_offer_new', methods: ['GET', 'POST'])]
