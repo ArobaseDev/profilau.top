@@ -32,6 +32,10 @@ h5 {
     @apply text-lg;
 }
 
+.img-logo {
+    width: 250px;
+}
+
 .tooltip {
     position: relative;
     display: inline-block;

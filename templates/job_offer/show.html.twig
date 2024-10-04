@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello JobOfferController!{% endblock %}
+{% block title %}Demande d'offre{% endblock %}
 
 {% block body %}
 <main class="w-screen-lg mx-auto py-5 md:py-16 px-4">
@@ -26,6 +26,7 @@
     <a href="{{ path('app_job_offer_edit', {'id': offer.id})}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editer</a>
  <form action="{{ path('app_cover_letter_generate') }}" method="post" >
       <input type="hidden" name="_token" value="{{ csrf_token('app_cover_letter_generate' ) }}">
+      <input type="hidden" name="job_offer_id" value="{{ offer.id }}">
     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Générer une lettre de motivation
     </button>

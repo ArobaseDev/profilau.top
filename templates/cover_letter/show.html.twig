@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lettre de motivation
+{% endblock %}
+
+{% block body %}
+<main class="w-screen-lg mx-auto py-5 md:py-16 px-4">
+	<h1>Lettre de motivation
+	</h1>
+
+
+	<div class="relative w-full border border-solid border-gray-200 rounded-2xl p-4 transition-all duration-500 col-span-12  xl:p-7   lg:col-span-3 md:col-span-6 ">
+
+		<p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 ">
+		{{letter.content | raw}}
+		</p>
+	</div>
+	{# <div class="container m-4 flex gap-3">
+		<form action="{{ path('app_job_offer_delete', {'id': offer.id}) }}" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');">
+			<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ offer.id) }}">
+			<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+				Supprimer
+			</button>
+		</form>
+		<a href="{{ path('app_job_offer_edit', {'id': offer.id})}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editer</a>
+		<form action="{{ path('app_cover_letter_generate') }}" method="post">
+			<input type="hidden" name="_token" value="{{ csrf_token('app_cover_letter_generate' ) }}">
+			<input type="hidden" name="job_offer_id" value="{{ offer.id }}">
+			<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+				Générer une lettre de motivation
+			</button>
+		</form>
+	</div> #}
+
+</main>
+{% endblock %}
