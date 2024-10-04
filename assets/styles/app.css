@@ -41,6 +41,10 @@ h5 {
     display: inline-block;
 }
 
+input {
+    width: 100%;
+}
+
 .tooltip::after {
     @apply bg-violet-950 text-slate-100;
     content: attr(data-tooltip);

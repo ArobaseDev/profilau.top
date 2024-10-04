@@ -45,7 +45,7 @@ class CoverLetterController extends AbstractController
         'Nom de l\'expediteur  ' . $this->getUser()->getLastName() .
         'Email de l\'expediteur  ' . $this->getUser()->getLastName() .
         '. Ajoute également des experiences dans le domaine. Formates moi le tout pour un affichage propre en html, c\'est à dire dès que tu rencontres un saut de ligne, ajoutes moi deux balises br. 
-        Merci de ne pas oublier de mettre le nom de la société et les informations de contact de la personne à contacter dans le texte de la lettre de motivation. Ces informations sont plus que nécessaires et doivent toujours figurées.
+         Merci de ne pas oublier de mettre le nom de la société et les informations de contact de la personne à contacter dans le texte de la lettre de motivation. Ces informations sont plus que nécessaires et doivent toujours figurées.
          N\'oublies pas de mettre l\'entête de corps d\'une lettre avec nom, prénom de l\'expediteur(données obligatoires). Espaces également les paragraphes.
          Ne pas mettre les balises : html, head, body, mais tu peux mettre les balises de titres et de paragraphes.
        ');

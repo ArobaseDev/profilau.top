@@ -1,11 +1,18 @@
 {#  Template when the user is logged in #}
 
 
-<a href="{{ path('app_job_offer')}}" data-tooltip="{{"All notes" | trans }}" class="p-2 rounded-md bg-slate-200 tooltip">
+<a href="{{ path('app_dashboard')}}" data-tooltip="{{"Dashboard" | trans }}" class="p-2 rounded-md bg-slate-200 tooltip">
+    {{ ux_icon('mdi:view-dashboard', { 'class': 'h-6 w-6 text-neutral-600 hover:text-violet-600' }) }}
+</a>
+<a href="{{ path('app_job_offer')}}" data-tooltip="{{"Mes recherches" | trans }}" class="p-2 rounded-md bg-slate-200 tooltip">
     {{ ux_icon('mdi:archive-outline', { 'class': 'h-6 w-6 text-neutral-600 hover:text-violet-600' }) }}
 </a>
-<a href="{{ path('app_job_offer_new')}}" data-tooltip="{{"Add a new note" | trans }}" class="p-2 rounded-md bg-slate-200 tooltip">
+<a href="{{ path('app_job_offer_new')}}" data-tooltip="{{"Souscrire à une offre" | trans }}" class="p-2 rounded-md bg-slate-200 tooltip">
     {{ ux_icon('mdi:plus-box-outline', { 'class': 'h-6 w-6 text-neutral-600 hover:text-violet-600' }) }}
+</a>
+
+<a href="{{ path('app_logout')}}" data-tooltip="{{"Deconnexion" | trans }}" class="p-2 rounded-md bg-slate-200 tooltip">
+    {{ ux_icon('mdi:logout', { 'class': 'h-6 w-6 text-neutral-600 hover:text-violet-600' }) }}
 </a>
 
 <a  href="" 

@@ -19,8 +19,10 @@ class JobOfferController extends AbstractController
     #[Route('/job-offers', name: 'app_job_offer', methods: ['GET'])]
     public function list(JobOfferRepository $jr): Response
     {
-        $offers = $jr->findAll();
-   //     dd($offers);
+        $offers = $jr->findBy([
+            'app_user' => $this->getUser(), // Filtrage des offres créées par l'utilisateur connecté
+        ]);
+
         return $this->render('job_offer/list.html.twig' ,[
             'offers' => $offers
         ]);

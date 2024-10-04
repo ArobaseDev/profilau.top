@@ -7,25 +7,36 @@
 <main class="max-w-screen-lg mx-auto py-5 md:py-16 px-4">
 
 <div class="example-wrapper">
-    <h1>Homepage</h1>
+    <h1>Mes recherches O' Top</h1>
 
 <div class="container m-5 p-5 ">
-    <p>
-        Welcome to the JobOffer platform! Here you can find various job opportunities, apply for them, and manage your job applications.
+
+
+
+
+<div class="container-fluid" style="color:black">
+
+    <h3>
+        Bienvenue sur la plateforme Profilau.Top  <br>Ici, vous pouvez trouver diverses opportunités d'emploi, postuler à celles-ci et gérer vos candidatures.
+    </h3><br>
+    <p class=" text-lg-6 text-black-200 italic" >
+        Veuillez noter que cette plateforme est actuellement en version bêta et ne prend pas encore en charge toutes les fonctionnalités.
     </p>
-    <p>
-        Please note that this platform is currently in beta and does not yet support all features.
-    </p>
-    <p>
-        If you have any questions or need help, please don't hesitate to ask.
-    </p>
+
+</div>
+
+
 
 </div>
 
 <div class="container">
     <div class="flex flex-wrap gap-5">
+    {% if app.user %}
+      {% else%}
+       <a href="{{'register'}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">S'inscrire</a>
     <a href="{{'login'}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Se connecter</a>
-    <a href="{{'register'}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">S'inscrire</a>
+    {% endif %}
+ 
     </div>
 </div>
 

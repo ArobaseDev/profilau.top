@@ -11,8 +11,14 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <body>
-      {{ include('components/navbar.html.twig') }}
-        {% block body %}{% endblock %}
+      
+      <body  {{ stimulus_controller('symfony/ux-swup/swup', {
+        containers: ['#swup']
+    }) }}
+    
+    >
+    {{ include('components/navbar.html.twig') }}
+       <div id="swup">
+        {% block body %}{% endblock %}</div>
     </body>
 </html>
