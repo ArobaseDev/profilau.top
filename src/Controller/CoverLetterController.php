@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Gemini;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -19,13 +20,13 @@ class CoverLetterController extends AbstractController
         ]);
     }
     
-    #[Route('/cover-letter/generate', name: 'app_cover_letter', methods:['POST'])]
+    #[Route('/cover-letter/generate', name: 'app_cover_letter_generate', methods:['POST'])]
     public function generate(): Response
     {
-        $apiKey = getenv('GEMINI_API_KEY');
+        $apiKey = $this->getParameter('GEMINI_API_KEY');
         $client = Gemini::client($apiKey);
         $result = $client->geminiPro()->generateContent('Hello');
-       echo ($result->text());
+       dd($result->text());
             // API call to generate cover letter
     }
 }

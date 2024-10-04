@@ -51,20 +51,53 @@ class JobOfferController extends AbstractController
     }
     
     #[Route('/job-offers/{id}', name: 'app_job_offer_show', methods: ['GET'])]
-    public function show(): Response
+    public function show(int $id, JobOfferRepository $jr): Response
     {
-        return $this->render('job_offer/show.html.twig', );
+        $offer = $jr->findOneById($id);
+        return $this->render('job_offer/show.html.twig',[
+            'offer' => $offer,
+            'date' => $offer->getApplicationDate()->format('d-m-Y')
+        ] );
     }
     
     #[Route('/job-offers/{id}/edit', name: 'app_job_offer_edit', methods: ['GET', 'POST'])]
-    public function edit(): Response
+    public function edit(int $id, Request $request, JobOfferRepository $jr, EntityManagerInterface $em): Response
     {
-        return $this->render('job_offer/edit.html.twig', );
+        $offer = $jr->find($id);
+        if (!$offer) {
+            throw $this->createNotFoundException('No job offer found for id ' . $id);
+        }
+
+        $form = $this->createForm(JobFormType::class, $offer);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+            return $this->redirectToRoute('app_job_offer', [
+                'id' => $offer->getId(),
+            ]);
+        }
+
+        return $this->render('job_offer/edit.html.twig', [
+            'jobForm' => $form->createView(),
+        ]);
     }
     
     #[Route('/job-offers/{id}/delete', name: 'app_job_offer_delete', methods: ['POST'])]
-    public function delete(): Response
+    public function delete(int $id, JobOfferRepository $jr, EntityManagerInterface $em, Request $request): Response
     {
-        return $this->render('job_offer/new.html.twig', );
+        $offer = $jr->find($id);
+        if (!$offer) {
+            throw $this->createNotFoundException('No job offer found for id ' . $id);
+        }
+
+        // Vérification du token CSRF pour éviter les suppressions non sécurisées
+        if ($this->isCsrfTokenValid('delete' . $offer->getId(), $request->request->get('_token'))) {
+            $em->remove($offer);
+            $em->flush();
+            $this->addFlash('success', 'Job offer successfully deleted.');
+        }
+
+        return $this->redirectToRoute('app_job_offer');
     }
 }
